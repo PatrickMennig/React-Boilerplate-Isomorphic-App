@@ -3,6 +3,7 @@ import web_service,
 import path							from 'path';
 import configuration				from './configuration';
 
+var isomorphine = 					require('../../shared/models/index.js');
 
 
 
@@ -13,6 +14,7 @@ const web = web_service({});
 web.files('/assets', path.join(__dirname, '../../', 'dist/assets'));
 
 // TODO proxy other requests to specific services
+//web.use(isomorphine.router);
 
 // Proxy all remaining requests to Webpage rendering server
 web.proxy('/', 'http://' + configuration.addressBook.webpageServer.http.host + ':' + configuration.addressBook.webpageServer.http.port);

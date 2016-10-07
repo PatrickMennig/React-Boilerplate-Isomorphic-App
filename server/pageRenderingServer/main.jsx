@@ -41,9 +41,6 @@ const pageServer = web_server({
 
 		const assets = wit.assets();
 
-		console.log('in wepage rendering server: assets object');
-		console.dir(assets);
-
 		const result = {
 			entry      : 'main',
 
@@ -56,8 +53,22 @@ const pageServer = web_server({
 		return result
 	},
 
+	/**
+	 * The following code explicitly adds the htmlAssets.style object to the head of each html response.
+	 * This is necessary to also render the styles on the server side.
+	 */
+	html: {
+		head: function () {
+			if(configuration.environment.environment === 'development' && htmlAssets.style) {
+				return <style dangerouslySetInnerHTML={{ __html: htmlAssets.style().toString() }} charSet="UTF-8"/>
+			}
+		}
+	},
+
 	// (optional)
-	// `print-error` options
+	/**
+	 * Control the display of errors printed in the browser.
+	 */
 	print_error: { font_size: '12pt' }
 
 }, common);

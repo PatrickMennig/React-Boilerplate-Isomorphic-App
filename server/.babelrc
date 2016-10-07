@@ -1,6 +1,7 @@
 {
 	"presets":
 	[
+		"react",
 		"node6", 
 		"stage-0"
 	],
@@ -10,9 +11,10 @@
 		"transform-es2015-destructuring",
 		"transform-object-rest-spread",
 
-		"transform-bluebird",
+		//"transform-bluebird",
 		"transform-runtime",
 		"add-module-exports",
-		"transform-decorators-legacy"
+		"transform-decorators-legacy",
+		"transform-react-display-name"
 	]
 }
