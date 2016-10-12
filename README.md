@@ -70,8 +70,6 @@ After cloning the project and running `npm install` you will see the following f
 .
 +-- dist
 +-- node_modules
-|   +-- begin-with-the-crazy-ideas.textile
-|   +-- on-simplicity-in-technology.markdown
 +-- server
 |   +-- content
 |   +-- main
