@@ -92,8 +92,8 @@ After cloning the project and running `npm install` you will see the following f
 
 A lot of work still has to be done to make this project worthy of the github community:
 
-- [] Add a database connection sample
-- [] Remove strange bug when initially starting the development server showing no output
+- [ ] Add a database connection sample
+- [ ] Remove strange bug when initially starting the development server showing no output
 * Documentation for all the things!
 * Add redux-forms
 * Complete production config for webpack
