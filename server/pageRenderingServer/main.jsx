@@ -1,7 +1,7 @@
 import React 					from 'react';
 import web_server				from 'react-isomorphic-render/server'
 
-import configuration			from '../main/configuration.jsx';
+import configuration			from '../../configuration.jsx';
 
 import common					from '../../shared/main.jsx';
 import htmlAssets				from '../../shared/htmlAssets.jsx';
@@ -20,7 +20,7 @@ const initializing_javascript =
 
 const pageServer = web_server({
 
-	disable_server_side_rendering : configuration.environment.disableServerSideRendering,
+	disable_server_side_rendering : configuration.env.disableServerSideRendering,
 
 	// Http host and port for executing all client-side ajax requests on server-side
 	application: {
@@ -35,7 +35,7 @@ const pageServer = web_server({
 	// Also a website "favicon".
 	//
 	assets: (url) => {
-		if (configuration.environment.environment === 'development') {
+		if (configuration.env.env === 'development') {
 			wit.refresh()
 		}
 
@@ -59,7 +59,7 @@ const pageServer = web_server({
 	 */
 	html: {
 		head: function () {
-			if(configuration.environment.environment === 'development' && htmlAssets.style) {
+			if(configuration.env.env === 'development' && htmlAssets.style) {
 				return <style dangerouslySetInnerHTML={{ __html: htmlAssets.style().toString() }} charSet="UTF-8"/>
 			}
 		}

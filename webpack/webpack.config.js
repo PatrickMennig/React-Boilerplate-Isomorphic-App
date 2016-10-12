@@ -10,7 +10,7 @@ global.webpackIsomorphicToolsPlugin =
 
 var ExtractTextPlugin = 			require('extract-text-webpack-plugin');
 
-var applicationConfiguration = 		require('../server/main/configuration.jsx');
+var applicationConfiguration = 		require('../configuration.jsx');
 var webpackHost = 					applicationConfiguration.development.webpack.development_server.host;
 var webpackPort = 					applicationConfiguration.development.webpack.development_server.port;
 
@@ -42,41 +42,17 @@ const configuration = {
 			},
 
 			{
-				test: /\.css$/,
+				test: /\.css$/,			//[s]?
 
-				include : path.resolve(__dirname, '..', 'shared', 'assets', 'styles'),
-				loaders :
-					[
-						'style-loader',
-						'css-loader?importLoaders=2&sourceMap', //&outputStyle=expanded&sourceMap=true&sourceMapContents=true', //importLoaders=2&sourceMap,
-						'postcss-loader',
-						//'sass-loader?outputStyle=expanded&sourceMap=true&sourceMapContents=true'
-					]
-
-
-				// TODO fix this not working without javascript?
-				// TODO how does it work in production?
-				/*
+				// TODO css?modules not working with webpack-isomorphic-tools server side rendering of styles
 				loaders : [
-					'style-loader',
-					'css-loader?importLoaders=2&sourceMap',
-					//'postcss-loader'
+					'style',
+					'css?modules&importLoaders=2&sourceMap&localIdentName=[local]___[hash:base64:5]',
+					//css-loader?importLoaders=2&sourceMap=true
+					'postcss-loader'
+					//'sass-loader?outputStyle=expanded&sourceMap=true&sourceMapContents=true'
 				]
-				*/
-
-
 			},
-
-			/*
-			{
-				test: /\.css$/,
-				loader: ExtractTextPlugin.extract('style-loader', [
-					'css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]',
-					'postcss-loader',
-					'autoprefixer-loader?{browsers: ["last 2 versions", "> 1%", "ie 9", "firefox >= 21", "safari >= 5"], cascade: false}'
-				].join('!'))
-			},
-			*/
 			{
 				test: /\.woff(\?v=\d+\.\d+\.\d+)?$/,
 				loader: 'url?limit=10000&mimetype=application/font-woff&name=assets/[name].[ext]'
@@ -99,7 +75,7 @@ const configuration = {
 			},
 			{
 				test: webpackIsomorphicToolsPlugin.regular_expression('images'),
-				loader: 'url-loader?limit=10240&name=assets/[sha512:hash:base64:7].[ext]'
+				loader: 'url-loader?limit=1&name=assets/[sha512:hash:base64:7].[ext]'
 			}
 		]
 	},

@@ -1,31 +1,35 @@
-import web_service,
+import webservice,
 		{ api as apiService, http } from 'web-service'
 import path							from 'path';
-import configuration				from './configuration';
+import configuration				from '../../configuration';
 
-var isomorphine = 					require('../../shared/models/index.js');
-
-
+const addressBook = configuration.addressBook;
 
 
-const web = web_service({});
+
+
+const web = webservice();
 
 // serve static asset files
 web.files('/assets', path.join(__dirname, '../../', 'dist/assets'));
 
-// TODO proxy other requests to specific services
-//web.use(isomorphine.router);
+// proxy other requests to specific services
+web.proxy('/content', proxyAddress(addressBook.contentServer));
 
 // Proxy all remaining requests to Webpage rendering server
-web.proxy('/', 'http://' + configuration.addressBook.webpageServer.http.host + ':' + configuration.addressBook.webpageServer.http.port);
+web.proxy('/', proxyAddress(addressBook.webpageServer));
 
 // start the server
-web.listen(configuration.addressBook.webserver.http.port).then(() =>
-	{
-		console.info('[main-server] running. Listening at ' + `http://${configuration.addressBook.webserver.http.host}:${configuration.addressBook.webserver.http.port}`);
-		//console.info(`Now go to http://${configuration.addressBook.webserver.http.host}:${configuration.addressBook.webserver.http.port}`);
+web.listen(configuration.addressBook.webserver.http.port).then(() => {
+		console.info('[main-server] running. Listening at ' + proxyAddress(addressBook.webserver));
 	},
-	error =>
-	{
+	error => {
 		console.error(error, 'Web server shutdown');
 });
+
+
+
+
+function proxyAddress(addressBookEntry) {
+	return 'http://' + addressBookEntry.http.host + ':' + addressBookEntry.http.port
+}

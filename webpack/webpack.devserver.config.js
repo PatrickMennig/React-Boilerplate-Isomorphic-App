@@ -8,7 +8,7 @@ var webpack_hot_middleware = 		require('webpack-hot-middleware');
 
 var WebpackDevServer = 				require('webpack-dev-server');
 
-var applicationConfiguration = 		require('../server/main/configuration.jsx');
+var applicationConfiguration = 		require('../configuration.jsx');
 var webpackHost = 					applicationConfiguration.development.webpack.development_server.host;
 var webpackPort = 					applicationConfiguration.development.webpack.development_server.port;
 
