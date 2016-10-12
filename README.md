@@ -22,7 +22,7 @@ It should be straightforward to setup your enviroment by following these guides.
 
 ### Installing
 
-To actually use this boilerplate check it out, open your terminal and navigate to the root folder of the project.
+To actually use this boilerplate check it out (or fork it on github), open your terminal and navigate to the root folder of the project.
 Run the following command:
 
 ```
@@ -60,12 +60,40 @@ Not every awesome project / library can be used. The following list gives a shor
 * [Web-Service]() - A simple to use web server that works well with webpack-isomorphic-tools
 
 
+## Project structure
+
+This project's structure is somewhat different to other (boilerplate) projects found on the web.
+While you may argue that this shouldn't be an indicator for quality but a concern, I've experienced the structure of other projects as sometimes *difficult*.
+After cloning the project and running `npm install` you will see the following folder structure:
+
+```
+.
++-- _config.yml
++-- _drafts
+|   +-- begin-with-the-crazy-ideas.textile
+|   +-- on-simplicity-in-technology.markdown
++-- _includes
+|   +-- footer.html
+|   +-- header.html
++-- _layouts
+|   +-- default.html
+|   +-- post.html
++-- _posts
+|   +-- 2007-10-29-why-every-programmer-should-play-nethack.textile
+|   +-- 2009-04-26-barcamp-boston-4-roundup.textile
++-- _data
+|   +-- members.yml
++-- _site
++-- index.html
+```
+
+
 ## ToDo
 
 A lot of work still has to be done to make this project worthy of the github community:
 
-* Add a database connection sample
-* Remove strange bug when initially starting the development server showing no output
+- [] Add a database connection sample
+- [] Remove strange bug when initially starting the development server showing no output
 * Documentation for all the things!
 * Add redux-forms
 * Complete production config for webpack
@@ -86,7 +114,9 @@ to be done
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
 
+In short words, do whatever you want with this code! Just be awesome!
+
 ## Acknowledgments
 
 * Shoutout to all the awesome folks of the react community
-* A special thank's goes to [Nikolay](https://github.com/halt-hammerzeit) for helping me understand his webpack-isomorphic-tools even on friday evenings ;)
+* A special thank's goes to [Nikolay](https://github.com/halt-hammerzeit) for helping me understand his webpack-isomorphic-tools even on friday evenings ;). This boilerplate project also relies heavily on some of his code in his sample [webapp](https://github.com/halt-hammerzeit/webapp).
