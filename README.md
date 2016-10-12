@@ -42,9 +42,9 @@ to start the boilerplate project's servers.
 Open your browser of choice and navigate to http://localhost:3000 and you should see the sample site in all it's glory.
 You might see nothing at all, just end the process and run it once again (see the ToDo section).
 
-## Projects of Reacts ecosystem used
+## Projects of React's ecosystem used
 
-Not every awesome project / library can be used. The following list gives an overview of the ones used for this boilerplate project.
+Not every awesome project / library can be used. The following list gives a short overview of the ones used for this boilerplate project.
 
 * [React](https://facebook.github.io/react/) - This boilerplate project is for react applications
 * [Redux]() - A great implementation of the Flux architecture for react apps
