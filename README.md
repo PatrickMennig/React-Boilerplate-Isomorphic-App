@@ -68,23 +68,28 @@ After cloning the project and running `npm install` you will see the following f
 
 ```
 .
-+-- _config.yml
-+-- _drafts
++-- dist
++-- node_modules
 |   +-- begin-with-the-crazy-ideas.textile
 |   +-- on-simplicity-in-technology.markdown
-+-- _includes
-|   +-- footer.html
-|   +-- header.html
-+-- _layouts
-|   +-- default.html
-|   +-- post.html
-+-- _posts
-|   +-- 2007-10-29-why-every-programmer-should-play-nethack.textile
-|   +-- 2009-04-26-barcamp-boston-4-roundup.textile
-+-- _data
-|   +-- members.yml
-+-- _site
-+-- index.html
++-- server
+|   +-- content
+|   +-- main
+|   +-- pageRenderingServer
++-- shared
+|   +-- actions
+|   +-- assets
+    |   +-- fonts
+    |   +-- images
+    |   +-- styles
+|   +-- components
+|   +-- containers
+|   +-- models
+|   +-- reducers
+|   +-- redux
+    |   +-- middleware
+|   +-- routes
++-- webpack
 ```
 
 
@@ -94,11 +99,11 @@ A lot of work still has to be done to make this project worthy of the github com
 
 - [ ] Add a database connection sample
 - [ ] Remove strange bug when initially starting the development server showing no output
-* Documentation for all the things!
-* Add redux-forms
-* Complete production config for webpack
-* Add deployment information
-* Add local font usage example
+- [ ] Documentation for all the things!
+- [ ] Add redux-forms
+- [ ] Complete production config for webpack
+- [ ] Add deployment information
+- [ ] Add local font usage example
 
 
 ## Contributing
