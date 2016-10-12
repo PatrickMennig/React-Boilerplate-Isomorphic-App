@@ -1,0 +1,14 @@
+.claim {
+	display: table;						/* vertically center the claim */
+	height: inherit;					/* pass through the height for vertically centering */
+	margin-top: -20px;					/* adjust vertically centering by content padding */
+}
+
+.claimText {
+	display: table-cell;				/* vertically center the claim */
+	vertical-align: middle;				/* vertically center the claim */
+
+	font-weight: 700;
+	font-size: 1.3em;
+	color: #333333;
+}

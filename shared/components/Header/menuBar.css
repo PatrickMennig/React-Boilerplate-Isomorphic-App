@@ -1,0 +1,36 @@
+.menuBar {
+	height: 40px;
+	background-color: #666666;
+
+	font-size: 0.9em;
+	font-weight: 300;
+}
+
+.entry {
+	display: inline-block;					/* align all elements in one row */
+
+	height: 40px;							/* completely fill the menu bar */
+	line-height: 40px;						/* vertically center the text */
+
+	padding-left: 30px;
+	padding-right: 30px;
+}
+
+a.entry {
+	text-decoration: none;					/* remove line under link */
+
+	color: #FFFFFF;
+}
+
+a.entry:hover {
+	background-color: #CCCCCC;
+}
+
+a.entry:visited {
+	color: inherit;
+}
+
+.active {
+	color: #333333;
+	background-color: #FFFFFF;
+}

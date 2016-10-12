@@ -1,0 +1,44 @@
+@media screen and (max-width: 800px) {
+
+	.contentInner {
+		width: 100%;
+	}
+}
+
+@media screen and (min-width: 801px) and (max-width: 1280px) {
+
+	.contentInner {
+		width: 90%;
+	}
+}
+
+@media screen and (min-width: 1281px) {
+
+	.contentInner {
+		width: 1280px;
+	}
+}
+
+.content {
+	text-align: center;				/* center the inner content based on flexible size */
+	height: inherit;
+}
+
+.contentInner {
+	display: inline-block;			/* center the inner content based on flexible size */
+	box-sizing: border-box;			/* calculate the size with margin/padding */
+	height: inherit;				/* pass through the height for vertically centering */
+
+	padding: 20px;					/* if you want to vertically center childs of content you have
+										to move them upwards by the same amount of this padding */
+}
+
+.hasNoPadding {
+	padding-top: 0;
+	padding-bottom: 0;
+}
+
+.contentInnerInner {
+	text-align: left;				/* reset aligning of child components */
+	height: inherit;				/* pass through the height for vertically centering */
+}

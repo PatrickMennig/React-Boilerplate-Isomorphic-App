@@ -1,8 +1,11 @@
 import React 							from 'react';
-import { connect }						from 'react-redux';
+
+import styles							from './app.css';
+
+import { Page }							from '../../components';
 
 
-@connect(state => ({main: state.main}))
+
 export default class App extends React.Component {
 
 	render() {
@@ -10,11 +13,7 @@ export default class App extends React.Component {
 		const { children } = this.props;
 
 		return (
-			<div>
-				My App
-				{children}
-			</div>
+			<Page>{children}</Page>
 		)
 	}
-
 }

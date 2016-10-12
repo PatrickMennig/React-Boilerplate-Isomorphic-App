@@ -1,0 +1,13 @@
+.headerContent {
+	height: inherit;
+}
+
+.logo {
+	padding-top: 20px;
+	height: 40px;
+}
+
+.rightContent {
+	float: right;
+	height: inherit;
+}
