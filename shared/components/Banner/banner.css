@@ -1,0 +1,22 @@
+.banner {
+	height: 300px;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center center;
+}
+
+.text {
+	display: table;
+	height: inherit;
+	width: 100%;
+
+	color: #ED6E00;
+	font-weight: 300;
+	font-size: 2em;
+}
+
+.textInner {
+	display: table-cell;
+	vertical-align: middle;
+	text-align: center;
+}

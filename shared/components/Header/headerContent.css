@@ -1,11 +1,33 @@
+@media screen and (max-width: 800px) {
+
+	.logo {
+		padding-top: 0;
+		height: 20px;
+	}
+}
+
+@media screen and (min-width: 801px) and (max-width: 1280px) {
+
+	.logo {
+		padding-top: 15px;
+		height: 30px;
+	}
+}
+
+@media screen and (min-width: 1281px) {
+
+	.logo {
+		padding-top: 20px;
+		height: 40px;
+	}
+}
+
+
 .headerContent {
 	height: inherit;
 }
 
-.logo {
-	padding-top: 20px;
-	height: 40px;
-}
+.logo { }
 
 .rightContent {
 	float: right;

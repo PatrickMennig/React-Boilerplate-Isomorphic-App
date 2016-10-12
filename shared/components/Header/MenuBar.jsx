@@ -15,7 +15,7 @@ export default class MenuBar extends Component {
 		const { children, entries } = this.props;
 
 		return (
-			<div className={styles.menuBar}>
+			<nav className={styles.menuBar}>
 				<Content hasNoPadding={true} alignChildren="right">
 					{entries.map( e => (
 						<Link className={e.active ? classNames(styles.entry, styles.active) : styles.entry}
@@ -25,7 +25,7 @@ export default class MenuBar extends Component {
 						</Link>
 					))}
 				</Content>
-			</div>
+			</nav>
 		)
 	}
 }

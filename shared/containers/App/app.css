@@ -3,3 +3,16 @@
 html, body {
 	font-family: 'Roboto', sans-serif;
 }
+
+a {
+	color: #ED6E00;
+	text-decoration: none;
+}
+
+a:visited {
+	color: inherit;
+}
+
+a:hover {
+	text-decoration: underline;
+}

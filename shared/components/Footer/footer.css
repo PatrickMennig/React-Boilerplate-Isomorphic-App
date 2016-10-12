@@ -1,0 +1,83 @@
+@media screen and (max-width: 800px) {
+
+	.footer {
+		height: auto;
+		line-height: 18px;
+		padding-bottom: 10px;
+	}
+
+	.left { display: block }
+	.right { display: block }
+
+	a.entry::before {
+		content: '\a';
+		white-space: pre;
+	}
+}
+
+@media screen and (min-width: 801px) and (max-width: 1280px) {
+
+	.footer {
+		height: 40px;
+		line-height: 40px;
+	}
+
+	.left {	float: left; }
+	.right { float: right; }
+
+	.left .entry {	padding-right: 10px; }
+	.right .entry {	padding-left: 10px; }
+
+	a.entry:not(:last-child)::after {
+		padding-left: 10px;
+		content: "|";
+	}
+}
+
+@media screen and (min-width: 1281px) {
+
+	.footer {
+		height: 40px;
+		line-height: 40px;
+	}
+
+	.left {	float: left; }
+	.right { float: right; }
+
+	.left .entry {	padding-right: 10px; }
+	.right .entry {	padding-left: 10px; }
+
+	a.entry:not(:last-child)::after {
+		padding-left: 10px;
+		content: "|";
+	}
+}
+
+
+.footer {
+	width: 100%;
+
+	font-size: 0.8em;
+	font-weight: 300;
+
+	background-color: #23272C;
+
+	overflow: hidden;
+}
+
+nav.inFooter {
+	color: #FFFFFF;
+}
+
+a.entry {
+	color: inherit;
+	text-decoration: none;
+}
+
+a.entry:hover {
+	text-decoration: underline;
+}
+
+a.entry:visited {
+	color: inherit;
+}

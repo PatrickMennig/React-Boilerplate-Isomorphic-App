@@ -13,13 +13,13 @@ export default class HeaderContainer extends Component {
 		const { children, logoSrc } = this.props;
 
 		return (
-			<div className={styles.headerContainer}>
+			<header className={styles.headerContainer}>
 				<HeaderContent
 					logoSrc={logoSrc}
 				>
 					{children}
 				</HeaderContent>
-			</div>
+			</header>
 		)
 	}
 }
