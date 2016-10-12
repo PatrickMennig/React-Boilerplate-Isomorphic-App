@@ -1,7 +1,11 @@
 import routes  						from './routes/routes';
 import wrapper 						from './wrapper'
 
-import configuration				from '../server/main/configuration';
+import configuration				from '../configuration';
+
+import promiseMiddleware			from './redux/middleware/promiseMiddleware';
+
+
 
 export default
 {
@@ -20,6 +24,7 @@ export default
 	{
 		// enable Redux event logging here
 		// middleware.push(create_logger())
+		middleware.push(promiseMiddleware);
 		return middleware
 	},
 
@@ -31,7 +36,7 @@ export default
 		//
 		// client side hot module reload for Redux reducers
 		// http://webpack.github.io/docs/hot-module-replacement.html#accept
-		if (configuration.environment.environment === 'development' && module.hot)
+		if (configuration.env.env === 'development' && module.hot)
 		{
 			// this path must be equal to the path in the `require()` call in `create_store` above
 			module.hot.accept('./reducers', reload_reducer)

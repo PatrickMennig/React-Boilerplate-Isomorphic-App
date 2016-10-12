@@ -1,36 +1,43 @@
 import Immutable 						from 'immutable';
-import { LOAD,
-	LOAD_FAILURE,
-	LOAD_REQUEST } 						from '../../reducers/main/static';
+import { GET_MAIN_CONTENT }				from '../../actions/main/mainActions';
 
 
-const defaultState = new Immutable.Map({
-	loaded: false
+const defaultState = Immutable.Map({
+	pending: false,
+	resolved: false
 });
 
-export default function teamReducer (state=defaultState, action={}) {
+export default function mainReducer (state, action={}) {
 
 	switch (action.type) {
 
-		case LOAD:
-			return new Immutable.Map({
-				...state,
-				loading: true
+		case GET_MAIN_CONTENT:
+			return Immutable.Map({
+				pending: false,
+				resolved: true,
+				content: action.res.content
 			});
 
-		case LOAD_REQUEST:
-			return new Immutable.Map({
-				loaded: true,
-				loading: true
+		case GET_MAIN_CONTENT + '_REQUEST':
+			/*state.set('pending', true);
+			return state;*/
+
+			return Immutable.Map({
+				pending: true,
+				resolved: false
 			});
 
-		case LOAD_FAILURE:
-			return new Immutable.Map({
-				loaded: false,
-				loading: true
+
+		case GET_MAIN_CONTENT + '_FAILURE':
+			return Immutable.Map({
+				pending: false,
+				resolved: false
 			});
 
 		default:
-			return state;
+			return Immutable.Map({
+				pending: false,
+				resolved: false
+			});
 	}
 }

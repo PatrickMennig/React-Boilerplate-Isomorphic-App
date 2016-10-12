@@ -11,7 +11,7 @@ import common         			from './main';
 // include these assets in webpack build (styles, images)
 import htmlAssets 				from './htmlAssets';
 
-import configuration			from '../server/main/configuration';
+import configuration			from '../configuration';
 
 
 
@@ -24,14 +24,14 @@ const create_routes = require('./routes/routes');
 // renders the webpage on the client side
 render ({
 	// enable/disable development mode (true/false)
-	development: configuration.environment.environment === 'development',
+	development: configuration.env.env === 'development',
 
 	// enable/disable Redux dev-tools (true/false)
-	development_tools: configuration.environment.developmentTools ? require('./devtools') : false
+	development_tools: configuration.env.devTools ? require('./devtools') : false
 }, common);
 
 
-if(configuration.environment.environment === 'development'){
+if(configuration.env.env === 'development'){
 	module.hot.accept(); // <-- this enables hot module replacement
 }
 
