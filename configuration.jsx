@@ -2,7 +2,7 @@ module.exports = {
 	
 	env: {
 		env: 'development',							// production,
-		devTools: false,
+		devTools: true,
 		disableServerSideRendering: false
 	},
 

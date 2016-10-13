@@ -30,7 +30,7 @@ a.entry:hover {
 }
 
 a.entry:visited {
-	color: inherit;
+	color: #FFFFFF;
 }
 
 a.entry.active {

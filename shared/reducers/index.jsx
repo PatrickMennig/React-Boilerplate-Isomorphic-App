@@ -1,1 +1,1 @@
-export { default as main }			from './main/main';
+export { default as content }			from './content/contentReducer';

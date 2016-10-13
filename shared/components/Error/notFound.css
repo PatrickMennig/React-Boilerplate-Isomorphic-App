@@ -1,0 +1,56 @@
+.headline, .subline {
+	text-align: right;
+	position: relative;
+	right: 0;
+}
+
+@media screen and (max-width: 800px) {
+
+	.headline, .subline {
+		left: 20%;
+		width: 80%;
+	}
+}
+
+@media screen and (min-width: 801px) and (max-width: 1280px) {
+
+	.headline, .subline {
+		left: 35%;
+		width: 65%;
+	}
+}
+
+@media screen and (min-width: 1281px) {
+
+	.headline, .subline {
+		left: 50%;
+		width: 50%;
+	}
+}
+
+
+
+.coffeeImg {
+	background-size: cover;
+	background-position: center center;
+}
+
+.caption {
+	margin-top: 60px;
+	font-size: 0.7em;
+	text-align: right;
+}
+
+.headline {
+	color: #23272C;
+	font-weight: 900;
+	font-size: 2em;
+	margin-top: 100px;
+}
+
+.subline {
+	margin-top: -10px;
+	color: #2D3339;
+	font-weight: 500;
+	font-size: 1.3em;
+}
