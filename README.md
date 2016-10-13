@@ -150,7 +150,7 @@ This is a typical react-redux container, connecting to the application's state a
 In the router, you will see that the way the notFound route is defined differs from the index route.
 It returns a stateless component that nests a custom component inside the "Page" container.
 Go and add another route of your choice and nest whatever component from "shared/components" feels appropriate.
-Right now you will have to restart the process once (`npm run dev) as hot module replacement is a bit broken.
+Right now you will have to restart the process once (`npm run dev`) as hot module replacement is a bit broken.
 Hop to the browser and visit your new route.
 You have created your first own subpage.
 
