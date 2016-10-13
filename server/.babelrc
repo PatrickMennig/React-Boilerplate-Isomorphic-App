@@ -2,7 +2,8 @@
 	"presets":
 	[
 		"react",
-		"node6", 
+		"node6",
+		"es2015",
 		"stage-0"
 	],
 

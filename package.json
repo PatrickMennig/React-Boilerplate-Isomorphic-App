@@ -7,9 +7,9 @@
     "dev": "npm-run-all --parallel dev-client dev-server-main-server dev-server-webpage-server dev-server-content-server",
     "dev-client": "npm-run-all --parallel  dev-client-webpack",
     "dev-client-webpack": "node --harmony -- \"webpack/webpack.devserver.config.js\"",
-    "dev-server-main-server": "node server/main/entry.js",
-    "dev-server-webpage-server": "node $NODE_DEBUG_OPTION server/pageRenderingServer/entry.js",
-    "dev-server-content-server": "node server/content/entry.js",
+    "dev-server-main-server": "NODE_ENV=development node server/main/entry.js",
+    "dev-server-webpage-server": "NODE_ENV=development node $NODE_DEBUG_OPTION server/pageRenderingServer/entry.js",
+    "dev-server-content-server": "NODE_ENV=development node server/content/entry.js",
     "production": "npm-run-all --parallel prod-client",
     "prod-client": "webpack --config \"webpack/webpack.production.config.js\"",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -48,12 +48,13 @@
     "react-isomorphic-render": "^5.0.6",
     "react-redux": "^4.4.5",
     "react-router": "^2.8.1",
+    "react-router-redux": "^4.0.6",
     "react-tools": "^0.13.3",
     "redux": "^3.6.0",
     "sass-loader": "^4.0.2",
     "web-service": "^0.3.0",
     "webpack": "^1.13.2",
-    "webpack-isomorphic-tools": "^2.5.8"
+    "webpack-isomorphic-tools": "^2.6.3"
   },
   "devDependencies": {
     "autoprefixer-loader": "^3.2.0",
@@ -76,6 +77,6 @@
     "url-loader": "^0.5.7",
     "webpack-dev-middleware": "^1.8.4",
     "webpack-dev-server": "^1.16.2",
-    "webpack-hot-middleware": "^2.12.2"
+    "webpack-hot-middleware": "^2.13.0"
   }
 }

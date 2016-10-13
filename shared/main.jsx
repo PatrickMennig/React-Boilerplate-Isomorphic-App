@@ -5,13 +5,25 @@ import configuration				from '../configuration';
 
 import promiseMiddleware			from './redux/middleware/promiseMiddleware';
 
+/*
+import { createStore, 
+		 combineReducers } 			from 'redux';
+import { routerReducer } 			from 'react-router-redux';
+*/
 
+/*
+// Add the reducer to your store on the `routing` key
+export const store = {
+		...require('./reducers'),
+		routing: routerReducer
+};
+*/
 
-export default
-{
+export const common = {
 	// Redux reducer
 	// (either an object or a function returning an object)
 	reducer: () => require('./reducers'),
+	//reducer: store,
 
 	// React-router routes
 	// (either a `<Route/>` element or a `function({ store })` returning a `<Route/>` element)
@@ -42,4 +54,4 @@ export default
 			module.hot.accept('./reducers', reload_reducer)
 		}
 	}
-}
+};

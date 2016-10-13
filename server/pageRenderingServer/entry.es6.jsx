@@ -9,7 +9,7 @@ const root_dir = path.resolve(__dirname, '..', '..');
 
 
 global.wit = new Webpack_isomorphic_tools( witConfig )
-.development( configuration.env.env === 'development' )
+//.development( configuration.env.env === 'development' )
 .server(root_dir, function() {
 	require('./main');
 });

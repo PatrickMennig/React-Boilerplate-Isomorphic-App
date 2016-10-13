@@ -3,7 +3,7 @@ import web_server				from 'react-isomorphic-render/server'
 
 import configuration			from '../../configuration.jsx';
 
-import common					from '../../shared/main.jsx';
+import { common }				from '../../shared/main.jsx';
 import htmlAssets				from '../../shared/htmlAssets.jsx';
 
 

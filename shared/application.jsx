@@ -6,7 +6,7 @@ import React          			from 'react'
 import ReactDOM       			from 'react-dom'
 
 import { render }     			from 'react-isomorphic-render/redux'
-import common         			from './main';
+import { common }      			from './main';
 
 // include these assets in webpack build (styles, images)
 import htmlAssets 				from './htmlAssets';
