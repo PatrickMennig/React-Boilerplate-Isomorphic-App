@@ -10,7 +10,7 @@ This boilerplate project tries to fill this gap with an uncommon approach: "docu
 The ultimate goal is to provide an extensive readme and code documentation.
 You should be able to understand what I've done just by reading this, but if you really want to use this boilerplate project, the code should explain itself to you with the code comments to provide a great way to start your next project.
 
-This project is still WIP and many features are still not implemented.
+This project is still WIP and many features are not yet implemented (see ToDo section below).
 If you feel like having a look, please do and leave me some feedback!
 I will work on adding more features as often as there is time left at the end of the day ;-)
 
