@@ -90,6 +90,72 @@ After cloning the project and running `npm install` you will see the following f
 +-- webpack
 ```
 
+Why did I choose this structure?
+Most of the code resides in "shared", while server specific code is placed in "server".
+Webpack's configuration is placed inside "webpack" to avoid cluttering the root folder.
+Once you start running the build process, all output is moved to "dist".
+
+Most of the time you will work in "shared" or "server". 
+You might even ignore the other folders for now.
+
+"shared" contains the main application you develop and this folder itself contains many children.
+I am following redux's convention of splitting the UI into components and containers.
+The first are unaware of application state hence should be reusable across projects.
+All properties necessary for them to work are passed as props.
+The latter (containers) are indeed aware of the application's state and connect to the store.
+
+The folders "actions", "reducers" and "models" are tightly coupled to redux's way of thinking.
+You may argue that this is pretty verbose, as you don't have to extensively split them like this,
+but I've personally found this way of working *cleaner*. 
+You may or may not disapprove.
+Normally, you wouldn't need the "models" folder at all. 
+I am using the models to represent the data structure and do client->server requests here.
+The reason is, that in my opinion, the action should be unaware of the way the action result is obtained.
+This way, I decouple the dispatching of an action from the actual way the result is obtained.
+
+"redux" contains enhancements like additional middelware that is loaded.
+
+"routes" contains at least one file for all the app's routes. 
+Again, this is nested deeper than necessary, just my personal opinion here again.
+
+The "assets" folder contains - as you would expect ;-) - the app's assets like images, fonts or global styles.
+
+
+## Where to start developing?
+
+This isn't an easy question, as I've found the parts of react projects to be extremely coupled by nature.
+You need a server and the client code from start when developing an universal application.
+Webpack and a handful of packages like webpack-isomporphic tools etc. are necesseray.
+Routes, stores etc. have to be defined prior to really start working.
+
+So, where to start?
+Begin by exploring the folder structure and take a look at "shared/routes/routes.jsx". 
+Here you will find all the available *pages* of the application.
+We have a main container wrapping all subcomponents called "App". 
+At this time it just provides some basic styling.
+The index route is "/" just displaying the "Page" container.
+This contains a menu, a header and a footer.
+If you navigate to any unknown route, you will see the "Page" container with the "NotFound" component.
+
+If you visit http://localhost:3000 the index route is used and you see the "Page" container ("shared/containers/Page/Page.jsx").
+This is a typical react-redux container, connecting to the application's state and displaying some child components like the Menu etc.
+
+In the router, you will see that the way the notFound route is defined differs from the index route.
+It returns a stateless component that nests a custom component inside the "Page" container.
+Go and add another route of your choice and nest whatever component from "shared/components" feels appropriate.
+Right now you will have to restart the process once (`npm run dev) as hot module replacement is a bit broken.
+Hop to the browser and visit your new route.
+You have created your first own subpage.
+
+To show some custom content, go to "server/content/main.jsx" and add another *get* handler.
+If you have added the page property to your new route, use the same name on the server and respond with some content.
+Restart the process (`npm run dev`) and revisit your page in the browser.
+You should see the string you've entered on the server.
+This way you can easily implement some logic to handle simple pages that don't differ much but just display some content like the legal and disclaimer pages.
+
+What if you want more advanced pages?
+... more to follow soon!
+
 
 ## ToDo
 
