@@ -56,13 +56,16 @@
 
 .footer {
 	width: 100%;
+	overflow: hidden;
+
+	position: absolute;
+	left: 0;
+	bottom: 0;
 
 	font-size: 0.8em;
 	font-weight: 300;
 
 	background-color: #23272C;
-
-	overflow: hidden;
 }
 
 nav.inFooter {
