@@ -151,7 +151,7 @@ Here you will find all the available *pages* of the application.
 We have a main container wrapping all subcomponents called App. 
 It just wraps all child components and is used to define some app wide styles.
 
-*This container is pretty verbose and might would have been easier to create with a stateless function component, but I prefer the readability the class pattern provides #justmypopinion*
+*This container is pretty verbose and might would have been easier to create with a stateless function component, but I prefer the readability the class pattern provides #justmypopinion.*
 
 ```
 import React 					        from 'react';
