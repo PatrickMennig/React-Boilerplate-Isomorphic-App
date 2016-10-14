@@ -137,8 +137,51 @@ Routes, stores etc. have to be defined prior to really start working.
 
 So, where to start?
 Begin by exploring the folder structure and take a look at "shared/routes/routes.jsx". 
+
+```
+<Route name="app" component={App} path="/">
+    <IndexRoute component={() => <Home page="home" />} />
+    <Route path="/test" component={() => <Home page="test" />} />
+
+    <Route path="*" state={404} component={() => <Home page="notFound"><NotFound /></Home>} />
+</Route>
+```
+
 Here you will find all the available *pages* of the application.
 We have a main container wrapping all subcomponents called "App". 
+It just wraps all child components and is used to define some app wide styles.
+
+```
+import React 					        from 'react';
+import styles					        from './app.css';
+import { Page }					        from '../../components';
+
+export default class App extends React.Component {
+	render() {
+		return (
+			<Page>{this.props.children}</Page>
+		)
+	}
+}
+```
+
+The Page component works the same way, it just applies some page-specfic styling.
+
+```
+import React, { Component, PropTypes } 	from 'react';
+import styles							from './page.css';
+
+export default class Page extends Component {
+	render() {
+		return (
+			<div className={styles.page}>
+				{this.props.children}
+			</div>
+		)
+	}
+}
+```
+
 At this time it just provides some basic styling.
 The index route is "/" just displaying the "Page" container.
 This contains a menu, a header and a footer.
