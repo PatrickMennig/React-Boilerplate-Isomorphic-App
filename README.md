@@ -50,7 +50,7 @@ This will take a while to download all project dependencies and save them locall
 When npm did it's job, run the following command:
 
 ```
-npm run dev
+npm run development
 ```
 
 to start the boilerplate project's servers. 
@@ -136,6 +136,16 @@ The "routes" folder contains at least one file for all the app's routes.
 Again, this is nested deeper than necessary, just my personal opinion here again.
 
 The "assets" folder contains - as you would expect ;-) - the app's assets like images, fonts or global styles.
+
+
+## .js VS .jsx file extensions
+
+When comparing different projects you will find many using just .js as a file extension even for those using jsx syntax, others naming them appropriately.
+While this is not a problem for webpack, I've experienced a different one.
+I'm using IntelliJ IDEA for developing web projects and not sublime text or similar apps as I feel this provides me some great benefit.
+And this IDE has a problem when encountered with jsx files with the .js extension.
+Hence I try to name all files containing jsx syntax with the .jsx extension. 
+That's all the buzz ;-) 
 
 
 ## Where to start exploring?
