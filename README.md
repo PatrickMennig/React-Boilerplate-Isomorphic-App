@@ -10,6 +10,15 @@ This boilerplate project tries to fill this gap with an uncommon approach: "docu
 The ultimate goal is to provide an extensive readme and code documentation.
 You should be able to understand what I've done just by reading this, but if you really want to use this boilerplate project, the code should explain itself to you with the code comments to provide a great way to start your next project.
 
+### Target Group
+Is this an introduction to react or just an explanation of the boilerplate project?
+Who should read this?
+If you're familiar with react and you've already developed some apps with it, using the typical infrastructure you might feel like this is not the right place for you.
+In case you just started learing react and want to have a base project that **explains** itself to you then you are in my target group.
+I will not explain every react/redux/... feature but explain the way they are combined and brought together.
+
+### Additional Notes
+
 This project is still WIP and many features are not yet implemented (see ToDo section below).
 If you feel like having a look, please do and leave me some feedback!
 I will work on adding more features as often as there is time left at the end of the day ;-)
@@ -65,6 +74,7 @@ Not every awesome project / library can be used. The following list gives a shor
 * [Classnames]() - Webpack allows us to use styles local to modules, classnames enables more than one class name
 * [React Cellblock]() - An interesting grid library for responsive layouts of grids
 * [Web-Service]() - A simple to use web server that works well with webpack-isomorphic-tools
+* ... many others are used, I tried to just mention the most important
 
 
 ## Project structure
@@ -122,13 +132,13 @@ This way, I decouple the dispatching of an action from the actual way the result
 
 "redux" contains enhancements like additional middelware that is loaded.
 
-"routes" contains at least one file for all the app's routes. 
+The "routes" folder contains at least one file for all the app's routes. 
 Again, this is nested deeper than necessary, just my personal opinion here again.
 
 The "assets" folder contains - as you would expect ;-) - the app's assets like images, fonts or global styles.
 
 
-## Where to start developing?
+## Where to start exploring?
 
 This isn't an easy question, as I've found the parts of react projects to be extremely coupled by nature.
 You need a server and the client code from start when developing an universal application.
@@ -151,7 +161,7 @@ Here you will find all the available *pages* of the application.
 We have a main container wrapping all subcomponents called App. 
 It just wraps all child components and is used to define some app wide styles.
 
-*This container is pretty verbose and might would have been easier to create with a stateless function component, but I prefer the readability the class pattern provides #justmypopinion.*
+*This container is pretty verbose and might would have been easier to create with a stateless functional component, but I prefer the readability the class pattern provides #justmypopinion.*
 
 ```
 import React 					        from 'react';
@@ -194,15 +204,119 @@ This is a typical react-redux container, connecting to the application's state a
 
 In the router, you will see that the way the notFound route is defined differs from the index route.
 It returns a stateless component that nests a custom component inside the "Page" container.
-Go and add another route of your choice and nest whatever component from "shared/components" feels appropriate.
-Right now you will have to restart the process once (`npm run dev`) as hot module replacement is a bit broken.
+
+Go and add another route of your choice.
+Create a new container component, add it to "shared/components/index.js" for easier import and nest whatever component from "shared/components" feels appropriate.
+Right now you will have to restart the process (`npm run dev`) or reload the browser as hot module replacement is a bit broken.
 Hop to the browser and visit your new route.
-You have created your first own subpage.
+You have created your first own page.
 
 To show some custom content, go to "server/content/main.jsx" and add another *get* handler.
-If you have added the page property to your new route, use the same name on the server and respond with some content.
-Restart the process (`npm run dev`) and revisit your page in the browser.
-You should see the string you've entered on the server.
+You should have added the page property to your new route: use the same name on the server and respond with some content.
+(Reload) and revisit your page in the browser.
+You will see the string you've entered on the server.
+
+Why?
+Go to "shared/actions" have a look at "./contentActions/contentActions.jsx".
+
+```
+import { getContent as _getContent } from '../../models/content/contentModel';
+
+
+export const GET_CONTENT = 'GET_CONTENT';
+
+export function getContent(page) {
+	return {
+		type: GET_CONTENT,
+		page,
+		promise: _getContent(page)
+	}
+}
+```
+
+It allows nothing but to dispatch the **GET_CONTENT** action.
+This will use the function provided in "shared/models/content/contentModel.jsx" to create a GET request and access the route on the server for the passed page name. 
+The promise is async and resolves at least two times.
+In case the action contains the *promise* property, the "promiseMiddleware" in "shared/redux/middleware/promiseMiddleware" intercepts the action and dispatches customized actions for **_REQUEST** and **_FAILURE**.  
+
+```
+/* code omitted for brevity */
+
+if (!promise) return next(action);
+
+const SUCCESS = type;
+const REQUEST = type + '_REQUEST';
+const FAILURE = type + '_FAILURE';
+next({ ...rest, type: REQUEST });
+
+/* code omitted for brevity */
+```
+
+The reducer will handle all three actions:
+
+```
+import Immutable 						from 'immutable';
+import { GET_CONTENT }					from '../../actions/content/contentActions';
+
+
+
+export default function contentReducer (state, action={}) {
+
+	switch (action.type) {
+
+		case GET_CONTENT:
+
+			return Immutable.Map({
+				...(state.toJS()),
+
+				[action.res.page]: {
+					content: action.res.content,
+					pending: false,
+					resolved: true
+				}
+			});
+
+		case GET_CONTENT + '_REQUEST':
+
+			return Immutable.Map({
+				...(state.toJS()),
+
+				[action.page]: {
+					pending: true,
+					resolved: false
+				}
+			});
+
+
+		case GET_CONTENT + '_FAILURE':
+
+			return Immutable.Map({
+				...(state.toJS()),
+
+				[action.page]: {
+					pending: false,
+					resolved: false
+				}
+			});
+
+		default:
+			return Immutable.Map({});
+	}
+}
+```
+
+Once the content for a specific page is requested, the reducer adds an immutable object under the page's name key to the store.
+The name of the content store is defined in "shared/reducers/index.jsx".
+ 
+```
+export { default as content }			from './content/contentReducer';
+```
+
+Upon the request, the state's object is in `pending: true` and `resolved: false`.
+In case of a succesfull request the pending state is set to false and resolved to true.
+If it fails, the pending state is also true but the resolved state is false.
+You might use this this to display a loading info or errors.
+
 This way you can easily implement some logic to handle simple pages that don't differ much but just display some content like the legal and disclaimer pages.
 
 What if you want more advanced pages?

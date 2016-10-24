@@ -12,7 +12,9 @@ export default function () {
 			<IndexRoute component={() => <Home page="home" />} />
 			<Route path="/test" component={() => <Home page="test" />} />
 
+
 			<Route path="*" state={404} component={() => <Home page="notFound"><NotFound /></Home>} />
+
 		</Route>
 	);
 };

@@ -48,7 +48,7 @@ export const common = {
 		//
 		// client side hot module reload for Redux reducers
 		// http://webpack.github.io/docs/hot-module-replacement.html#accept
-		if (configuration.env.env === 'development' && module.hot)
+		if (process.env.NODE_ENV === 'development' && module.hot)
 		{
 			// this path must be equal to the path in the `require()` call in `create_store` above
 			module.hot.accept('./reducers', reload_reducer)

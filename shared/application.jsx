@@ -31,7 +31,7 @@ render ({
 }, common);
 
 
-if(configuration.env.env === 'development'){
+if(process.env.NODE_ENV === 'development'){
 	module.hot.accept(); // <-- this enables hot module replacement
 }
 

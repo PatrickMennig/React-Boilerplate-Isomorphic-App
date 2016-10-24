@@ -35,7 +35,7 @@ const pageServer = web_server({
 	// Also a website "favicon".
 	//
 	assets: (url) => {
-		if (configuration.env.env === 'development') {
+		if (process.env.NODE_ENV === 'development') {
 			wit.refresh()
 		}
 
@@ -59,9 +59,13 @@ const pageServer = web_server({
 	 */
 	html: {
 		head: function () {
+			let h = [<meta key="meta-viewport" name="viewport" content="width=device-width, initial-scale=1" />];
+
 			if(configuration.env.env === 'development' && htmlAssets.style) {
-				return <style dangerouslySetInnerHTML={{ __html: htmlAssets.style().toString() }} charSet="UTF-8"/>
+				h.push(<style key="styles" dangerouslySetInnerHTML={{ __html: htmlAssets.style().toString() }} charSet="UTF-8"/>)
 			}
+
+			return h;
 		}
 	},
 
