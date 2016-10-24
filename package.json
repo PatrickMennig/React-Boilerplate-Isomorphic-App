@@ -4,14 +4,27 @@
   "description": "",
   "main": "server/index.js",
   "scripts": {
-    "dev": "npm-run-all --parallel dev-client dev-server-main-server dev-server-webpage-server dev-server-content-server",
+    "development": "npm-run-all --parallel dev-client dev-server-main dev-server-webpage dev-server-content dev-server-contactForm",
+
     "dev-client": "npm-run-all --parallel  dev-client-webpack",
     "dev-client-webpack": "node --harmony -- \"webpack/webpack.devserver.config.js\"",
-    "dev-server-main-server": "NODE_ENV=development node server/main/entry.js",
-    "dev-server-webpage-server": "NODE_ENV=development node $NODE_DEBUG_OPTION server/pageRenderingServer/entry.js",
-    "dev-server-content-server": "NODE_ENV=development node server/content/entry.js",
-    "production": "npm-run-all --parallel prod-client",
-    "prod-client": "webpack --config \"webpack/webpack.production.config.js\"",
+    "dev-server-main": "NODE_ENV=development node server/main/entry.js",
+    "dev-server-webpage": "NODE_ENV=development node $NODE_DEBUG_OPTION server/pageRenderingServer/entry.js",
+    "dev-server-content": "NODE_ENV=development node server/content/entry.js",
+    "dev-server-contactForm": "NODE_ENV=development node server/contactForm/entry.js",
+
+
+    "production": "npm run production-webpack && npm run production-servers",
+    "production-webpack": "npm-run-all prod-client",
+    "production-servers": "npm-run-all --parallel prod-server-main prod-server-webpage prod-server-content prod-server-contactForm",
+
+    "prod-client": "webpack -p --config \"webpack/webpack.production.config.js\"",
+
+    "prod-server-main": "NODE_ENV=production node server/main/entry.js",
+    "prod-server-webpage": "NODE_ENV=production node server/pageRenderingServer/entry.js",
+    "prod-server-content": "NODE_ENV=production node server/content/entry.js",
+    "prod-server-contactForm": "NODE_ENV=production node server/contactForm/entry.js",
+
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Patrick Mennig",
@@ -33,8 +46,11 @@
     "babel-preset-react": "^6.16.0",
     "babel-preset-stage-0": "^6.16.0",
     "babel-register": "^6.16.3",
+    "body-parser": "^1.15.2",
     "classnames": "^2.2.5",
+    "emailjs": "^1.0.8",
     "es6-promise": "^4.0.5",
+    "express": "^4.14.0",
     "extract-text-webpack-plugin": "^1.0.1",
     "immutable": "^3.8.1",
     "isomorphic-fetch": "^2.2.1",
