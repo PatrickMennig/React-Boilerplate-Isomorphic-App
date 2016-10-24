@@ -13,7 +13,7 @@ var ExtractTextPlugin = 			require('extract-text-webpack-plugin');
 
 const configuration = {
 
-	devtool: 'source-map',
+	devtool: 'cheap-module-source-map',
 
 	context: path.resolve(__dirname, '..'),
 
@@ -25,9 +25,9 @@ const configuration = {
 
 	output: {
 		path: path.resolve(__dirname, '..', 'dist'),
-		filename: '[name]-[chunkhash].js',
+		filename: '[name].js',
 		chunkFilename: '[name]-[chunkhash].js',
-		publicPath: '/dist/'
+		publicPath: '/assets/'
 	},
 
 	module: {
@@ -86,10 +86,10 @@ const configuration = {
 
 	plugins: [
 		// css files from the extract-text-plugin loader
-		new ExtractTextPlugin('[name]-[chunkhash].css', {allChunks: true}),
+		new ExtractTextPlugin('[name].css', {allChunks: true}),
 		new webpack.DefinePlugin({
 			'process.env': {
-				NODE_ENV: '"production"'
+				NODE_ENV: JSON.stringify('production')
 			},
 
 			__CLIENT__: true,

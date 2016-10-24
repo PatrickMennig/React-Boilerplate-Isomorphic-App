@@ -11,10 +11,11 @@ const addressBook = configuration.addressBook;
 const web = webservice();
 
 // serve static asset files
-web.files('/assets', path.join(__dirname, '../../', 'dist/assets'));
+web.files('/assets', path.join(__dirname, '../../', 'dist/'));
 
 // proxy other requests to specific services
 web.proxy('/content', proxyAddress(addressBook.contentServer));
+web.proxy('/contact', proxyAddress(addressBook.contactFormServer));
 
 // Proxy all remaining requests to Webpage rendering server
 web.proxy('/', proxyAddress(addressBook.webpageServer));

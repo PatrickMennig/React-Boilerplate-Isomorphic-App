@@ -1,7 +1,6 @@
 module.exports = {
 	
 	env: {
-		env: 'development',							// production,
 		devTools: true,
 		disableServerSideRendering: false
 	},
@@ -42,6 +41,13 @@ module.exports = {
 			http: {
 				host: 'localhost',
 				port: 3003
+			}
+		},
+
+		contactFormServer: {
+			http: {
+				host: 'localhost',
+				port: 3004
 			}
 		}
 	}
