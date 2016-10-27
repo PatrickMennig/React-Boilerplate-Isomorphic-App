@@ -329,8 +329,16 @@ You might use this this to display a loading info or errors.
 
 This way you can easily implement some logic to handle simple pages that don't differ much but just display some content like the legal and disclaimer pages.
 
-What if you want more advanced pages?
-... more to follow soon!
+
+## Subtopics covered in other READMEs
+
+Specific topics tied to parts of the app are covered in other README files:
+
+* [Information about the servers](./server/README.md)
+* [Information about the main server](./server/main/README.md)
+* [Information about the dist bundle](./dist/README.md)
+* [Information about application code](./shared/README.md)
+* [Information about the servers](./server/README.md)
 
 
 ## ToDo
