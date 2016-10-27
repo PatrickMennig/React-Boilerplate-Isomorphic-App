@@ -24,7 +24,7 @@ const create_routes = require('./routes/routes');
 // renders the webpage on the client side
 render ({
 	// enable/disable development mode (true/false)
-	development: configuration.env.env === 'development',
+	development: process.env.NODE_ENV === 'development',
 
 	// enable/disable Redux dev-tools (true/false)
 	development_tools: configuration.env.devTools ? require('./devtools') : false

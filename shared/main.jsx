@@ -34,8 +34,6 @@ export const common = {
 
 	redux_middleware(middleware)
 	{
-		// enable Redux event logging here
-		// middleware.push(create_logger())
 		middleware.push(promiseMiddleware);
 		return middleware
 	},
