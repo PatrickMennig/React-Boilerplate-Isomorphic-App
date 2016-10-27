@@ -338,7 +338,6 @@ Specific topics tied to parts of the app are covered in other README files:
 * [Information about the main server](./server/main/README.md)
 * [Information about the dist bundle](./dist/README.md)
 * [Information about application code](./shared/README.md)
-* [Information about the servers](./server/README.md)
 
 
 ## ToDo
