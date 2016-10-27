@@ -1,23 +1,9 @@
 import routes  						from './routes/routes';
 import wrapper 						from './wrapper'
 
-import configuration				from '../configuration';
-
 import promiseMiddleware			from './redux/middleware/promiseMiddleware';
 
-/*
-import { createStore, 
-		 combineReducers } 			from 'redux';
-import { routerReducer } 			from 'react-router-redux';
-*/
 
-/*
-// Add the reducer to your store on the `routing` key
-export const store = {
-		...require('./reducers'),
-		routing: routerReducer
-};
-*/
 
 export const common = {
 	// Redux reducer

@@ -3,6 +3,9 @@
 
 ## Routes
 
+Each route that is not a webpage route (i.e. one that is **not** in "shared/routes/routes.jsx" has to be addressed here.
+See [the main README for servers](../README.md) for more information.
+
 ## Dependencies
 
 What can go wrong here? 

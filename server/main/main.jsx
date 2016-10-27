@@ -30,7 +30,6 @@ web.listen(configuration.addressBook.webserver.http.port).then(() => {
 
 
 
-
 function proxyAddress(addressBookEntry) {
 	return 'http://' + addressBookEntry.http.host + ':' + addressBookEntry.http.port
 }
