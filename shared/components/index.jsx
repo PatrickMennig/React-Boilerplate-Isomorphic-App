@@ -1,4 +1,5 @@
 export Banner 							from './Banner/Banner';
+export ContactForm 						from './ContactForm/ContactForm';
 export Content 							from './Content/Content';
 export NotFound 						from './Error/NotFound';
 export Teaser 							from './Teaser/Teaser';

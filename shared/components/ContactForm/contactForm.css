@@ -1,0 +1,114 @@
+.form {}
+
+.form div {
+	display: inline;
+}
+
+.form div.line {
+	display: block;
+	padding: 10px 0;
+}
+
+.form label {
+	display: inline-block;
+	width: 250px;
+}
+
+.form input:not([type=checkbox]), .form textarea {
+	width: 400px;
+	border: 1px solid rgba(153,153,153,0.5);
+}
+
+.form input, .form textarea {
+	display: inline-block;
+	padding: 4px;
+}
+
+.form input {
+	height: 26px;
+	line-height: 20px;
+}
+
+.form textarea {
+	resize: none;
+	height: 300px;
+	line-height: 20px;
+}
+
+.labelRight {
+	padding-left: 8px;
+}
+
+.alignTop *{
+	vertical-align: top;
+}
+
+.alignMiddle * {
+	vertical-align: middle;
+}
+
+.error {
+	color: #ED6E00;
+	padding-left: 16px;
+}
+.warning {
+	color: #3A3A3A;
+}
+
+.form button {
+	margin-top: 20px;
+	margin-left: 250px;
+}
+
+.form button {
+	width: auto;
+	min-width: 220px;
+
+	height: 36px;
+
+	cursor: pointer;
+
+	font-size: inherit;
+
+	background-color: #ED6E00;
+	color: #FFFFFF;
+
+	-webkit-appearance: none;
+	-moz-appearance: none;
+
+	box-shadow: none;
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	outline: 0;
+	border: 0;
+}
+
+.form  button:hover {
+	background-color: #FF8A24;
+}
+
+.form  button:active {
+	background-color: #B55400;
+}
+
+@media screen and (max-width: 800px) {
+
+	.form  button {
+		padding: 0 5px;
+	}
+
+}
+
+@media screen and (min-width: 801px) and (max-width: 1280px) {
+
+	.form  button {
+		padding: 0 8px;
+	}
+}
+
+@media screen and (min-width: 1281px) {
+
+	.form  button {
+		padding: 0 14px;
+	}
+}
