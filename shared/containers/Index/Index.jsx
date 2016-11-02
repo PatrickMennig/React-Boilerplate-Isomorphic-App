@@ -3,7 +3,7 @@ import { connect }						from 'react-redux';
 
 import * as contentActions				from '../../actions/content/contentActions';
 
-import styles							from './page.css';
+import styles							from './index.css';
 
 import { MenuBar,
 		 HeaderContainer,

@@ -7,7 +7,6 @@ const addressBook = configuration.addressBook;
 
 
 
-
 const web = webservice();
 
 // serve static asset files
